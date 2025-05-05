@@ -1,16 +1,50 @@
-# firestore
+# Flutter Firebase Firestore Web App
 
-A new Flutter project.
+This Flutter application demonstrates a simple chat application powered by Firebase. Users can sign in with Email and password based authentication and send messages to each other in real-time using bloc state-management.
+This flutter web application is about to access data from firebase firestore using riverpod state management
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1) Check official firebase documentation for configure firebase in your app
+https://firebase.google.com/docs/flutter/setup
 
-A few resources to get you started if this is your first Flutter project:
+2) Dependencies
+```
+dependencies:
+  flutter:
+    sdk: flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  table_calendar: ^3.2.0
+  flutter_riverpod: ^2.6.1
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  freezed: ^2.5.8
+  build_runner: ^2.4.15
+  json_serializable: ^6.9.5   
+```
+
+4) Code Setup
+- initialize Firebase in you main file   
+```
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
+}
+```
+- Fetch Firestore Data
+```
+FirebaseFirestore.instance.collection('users').doc(userId).get();
+```
+
+# Video
+
+https://github.com/user-attachments/assets/4499f604-8931-4d7a-9daa-c59de4d8908c
+
